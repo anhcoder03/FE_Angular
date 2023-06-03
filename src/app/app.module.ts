@@ -29,6 +29,11 @@ import { FooterComponent } from './components/common/footer/footer.component';
 import { DashboardHeaderComponent } from './components/dashboard/dashboard-header/dashboard-header.component';
 import { DashboardSidebarComponent } from './components/dashboard/dashboard-sidebar/dashboard-sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { MenuComponent } from './components/common/menu/menu.component';
+import { ProductAppleComponent } from './components/product-apple/product-apple.component';
+import { ProductSamsungComponent } from './components/product-samsung/product-samsung.component';
+import { ProductXiaomiOppoComponent } from './components/product-xiaomi-oppo/product-xiaomi-oppo.component';
+import { SocialMediaComponent } from './components/social-media/social-media.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +58,12 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     FooterComponent,
     DashboardHeaderComponent,
     DashboardSidebarComponent,
-    DashboardComponent
+    DashboardComponent,
+    MenuComponent,
+    ProductAppleComponent,
+    ProductSamsungComponent,
+    ProductXiaomiOppoComponent,
+    SocialMediaComponent
   ],
   imports: [
     BrowserModule,
