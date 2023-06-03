@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
@@ -15,6 +14,11 @@ import { ListProductComponent } from './modules/product/list-product/list-produc
 import { AddProductComponent } from './modules/product/add-product/add-product.component';
 import { UpdateProductComponent } from './modules/product/update-product/update-product.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
+import { AuthenticationLayoutComponent } from './layouts/authentication-layout/authentication-layout.component';
+import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
+import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
+import { AdminGuard } from './services/guard/admin.guard';
+import { AuthGuard } from './services/guard/authen.guard';
 
 const routes: Routes = [
   {
@@ -24,13 +28,22 @@ const routes: Routes = [
       { path: '', component: HomePageComponent },
       { path: 'product', component: ProductPageComponent },
       { path: 'product/:slug', component: ProductDetailPageComponent },
-      // { path: 'signin', component: SigninComponent },
-      // { path: 'signup', component: SignupComponent },
     ],
+  },
+  {
+    path: 'sign-up',
+    component: AuthenticationLayoutComponent,
+    children: [{ path: '', component: SignUpPageComponent }],
+  },
+  {
+    path: 'sign-in',
+    component: AuthenticationLayoutComponent,
+    children: [{ path: '', component: SignInPageComponent }],
   },
   {
     path: 'admin',
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard, AdminGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
@@ -64,6 +77,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -36,6 +36,9 @@ import { ProductAppleComponent } from './components/product-apple/product-apple.
 import { ProductSamsungComponent } from './components/product-samsung/product-samsung.component';
 import { ProductXiaomiOppoComponent } from './components/product-xiaomi-oppo/product-xiaomi-oppo.component';
 import { SocialMediaComponent } from './components/social-media/social-media.component';
+import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
+import { AuthenticationLayoutComponent } from './layouts/authentication-layout/authentication-layout.component';
+import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +69,9 @@ import { SocialMediaComponent } from './components/social-media/social-media.com
     ProductSamsungComponent,
     ProductXiaomiOppoComponent,
     SocialMediaComponent,
+    SignUpPageComponent,
+    AuthenticationLayoutComponent,
+    SignInPageComponent,
   ],
   imports: [
     BrowserModule,
