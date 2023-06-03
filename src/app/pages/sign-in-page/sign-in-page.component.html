@@ -1,0 +1,102 @@
+<section class="pt-4 pb-4 bg-[#F2F2F2]">
+  <div
+    class="max-w-lg p-8 mx-auto my-10 bg-white shadow rounded-xl shadow-slate-300"
+  >
+    <h1 class="flex justify-center text-4xl font-medium">Đăng Nhập</h1>
+    <form [formGroup]="userForm" (ngSubmit)="onHandleSignin()" class="my-10">
+      <div class="flex flex-col space-y-5">
+        <label for="phone">
+          <p class="pb-2 font-medium text-slate-700">Email</p>
+          <input
+            id="email"
+            formControlName="email"
+            name="email"
+            type="text"
+            class="w-full px-3 py-3 border rounded-lg border-slate-200 focus:outline-none focus:border-slate-500 hover:shadow"
+            placeholder="Enter email address"
+          />
+        </label>
+        <label for="password">
+          <p class="pb-2 font-medium text-slate-700">Mật khẩu</p>
+          <input
+            id="password"
+            name="password"
+            formControlName="password"
+            type="password"
+            class="w-full px-3 py-3 border rounded-lg border-slate-200 focus:outline-none focus:border-slate-500 hover:shadow"
+            placeholder="Enter your password"
+          />
+        </label>
+        <div class="flex flex-row justify-between">
+          <div>
+            <label for="remember" class="">
+              <input
+                type="checkbox"
+                id="remember"
+                class="w-4 h-4 border-slate-200 focus:bg-indigo-600"
+              />
+              Ghi nhớ mật khẩu
+            </label>
+          </div>
+          <div>
+            <a href="#" class="font-medium text-indigo-600">Quên mật khẩu?</a>
+          </div>
+        </div>
+        <button
+          class="inline-flex items-center justify-center w-full py-3 space-x-2 font-medium text-white border-indigo-500 rounded-lg bg-primary hover:bg-opacity-80 hover:shadow"
+          [disabled]="!userForm.valid"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+            />
+          </svg>
+          <span>Đăng Nhập</span>
+        </button>
+        <div class="my-5">
+          <button
+            class="flex items-center justify-center w-full py-3 my-3 space-x-2 text-center transition duration-150 border rounded-lg border-slate-200 text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow"
+          >
+            <img
+              src="https://www.svgrepo.com/show/355037/google.svg"
+              class="w-6 h-6"
+              alt=""
+            />
+            <span>Đăng nhập Google</span>
+          </button>
+        </div>
+        <p class="text-center">
+          Bạn chưa có tài khoản?
+          <a
+            routerLink="/sign-up"
+            class="inline-flex items-center space-x-1 font-medium text-indigo-600"
+            ><span>Đăng ký tại đây </span
+            ><span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                /></svg></span
+          ></a>
+        </p>
+      </div>
+    </form>
+  </div>
+</section>
