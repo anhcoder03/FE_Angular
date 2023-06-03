@@ -34,16 +34,19 @@ export class ListProductComponent {
     const comfirm = window.confirm('Bạn có chắc chắn muốn xóa');
 
     if (comfirm) {
-      this.productservice.deleteProduct(_id).subscribe((data) => {
-        if (data.success) {
-          this.toastr.success(data.message);
-          this.products = this.products.filter(
-            (item: IProduct) => item._id !== _id
-          );
-        } else {
-          this.toastr.error(data.message);
+      this.productservice.deleteProduct(_id).subscribe(
+        (data) => {
+          if (data.success) {
+            this.toastr.success(data.message);
+            this.products = this.products.filter(
+              (item: IProduct) => item._id !== _id
+            );
+          }
+        },
+        (error) => {
+          this.toastr.error(error.error.message);
         }
-      });
+      );
     }
   }
   onPageChange(event: number): void {
