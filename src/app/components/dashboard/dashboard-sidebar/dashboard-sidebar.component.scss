@@ -1,0 +1,21 @@
+.sidebar-wrapper {
+  width: 200px;
+  background: #ffffff;
+  box-shadow: 10px 10px 20px rgba(218, 213, 213, 0.15);
+  border-radius: 12px;
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 20px;
+  font-weight: 500;
+  color: #000;  
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.menu-item.active,
+.menu-item:hover {
+  background: #ff655114;
+  color: #ff6651;
+}

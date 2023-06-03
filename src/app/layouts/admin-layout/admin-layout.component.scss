@@ -1,0 +1,10 @@
+.dashboard-wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.dashboard-main {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  padding: 40px 20px;
+  gap: 0 40px;
+}

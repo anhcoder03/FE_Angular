@@ -1,1 +1,9 @@
-<p>admin-layout works!</p>
+<div class="dashboard-wrapper">
+  <app-dashboard-header></app-dashboard-header>
+  <div class="dashboard-main">
+    <app-dashboard-sidebar></app-dashboard-sidebar>
+    <div class="dashboard-children">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
