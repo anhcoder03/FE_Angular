@@ -9,6 +9,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
 *,
 *::before,
 *::after {
@@ -59,13 +61,13 @@ a {
 .form-layout {
   @apply grid grid-cols-1 lg:grid-cols-2 lg:gap-x-10 mb-5 lg:mb-10;
 }
+
 .form-group {
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 .container {
   max-width: 1280px;
   width: 100%;
@@ -103,4 +105,34 @@ td {
   width: 100%;
   z-index: 1;
   cursor: pointer;
+}
+.owl-prev,
+.owl-next {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  font-size: 24px !important;
+  color: white !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  padding: 10px !important;
+}
+.owl-next:hover,
+.owl-prev:hover {
+  background: #ffb35c !important;
+}
+.owl-prev {
+  left: 10px;
+}
+
+.owl-next {
+  right: 10px;
+}
+.dropdown:hover .menu-dropdown {
+  display: block;
+}
+.menu-dropdown {
+  padding: 10px 20px;
+  border-bottom: 1px solid #ccc;
+  display: none;
+  font-size: 14px;
 }
