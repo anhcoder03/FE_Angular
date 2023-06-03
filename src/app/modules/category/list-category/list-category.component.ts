@@ -6,10 +6,13 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-list-category',
   templateUrl: './list-category.component.html',
-  styleUrls: ['./list-category.component.scss']
+  styleUrls: ['./list-category.component.scss'],
 })
 export class ListCategoryComponent {
-  constructor(private CategoryService: CategoryService, private ToastrService: ToastrService) { }
+  constructor(
+    private CategoryService: CategoryService,
+    private ToastrService: ToastrService
+  ) {}
 
   // Khai báo kiểu dữ liệu
   categories: ICategory[] = [];
@@ -25,22 +28,26 @@ export class ListCategoryComponent {
       this.data = data;
       this.categories = this.data.data;
       // console.log(data);
-    })
+    });
   }
 
   // Hàm xử lý sự kiện xóa
   onHandleRemove(_id: any) {
-    const confirm = window.confirm("Bạn có chắc chắn muốn xóa?");
+    const confirm = window.confirm('Bạn có chắc chắn muốn xóa?');
     if (confirm) {
-      this.CategoryService.DeleteCategory(_id).subscribe((data) => {
-        if (data.success) {
-          this.categories = this.categories.filter(cate => cate._id !== _id);
-          this.ToastrService.success("Congratulations!!! You have successfully deleted🙈🤪")
+      this.CategoryService.DeleteCategory(_id).subscribe(
+        (data) => {
+          if (data.success) {
+            this.categories = this.categories.filter(
+              (cate) => cate._id !== _id
+            );
+            this.ToastrService.success(data.message);
+          }
+        },
+        (error) => {
+          this.ToastrService.warning(error.error.message);
         }
-        else {
-          this.ToastrService.error(data.message);
-        }
-      })
+      );
     }
   }
 }

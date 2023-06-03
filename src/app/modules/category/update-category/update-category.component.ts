@@ -9,20 +9,26 @@ import { ICategory } from 'src/app/interface/Category';
 @Component({
   selector: 'app-update-category',
   templateUrl: './update-category.component.html',
-  styleUrls: ['./update-category.component.scss']
+  styleUrls: ['./update-category.component.scss'],
 })
 export class UpdateCategoryComponent {
-  constructor(private router: Router, private route: ActivatedRoute, private categoryService: CategoryService, private FormBuilder: FormBuilder, private ToastrService: ToastrService) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private categoryService: CategoryService,
+    private FormBuilder: FormBuilder,
+    private ToastrService: ToastrService
+  ) {}
 
   // KHAI BÁO KIỂU DỮ LIỆU
   category: ICategory = {
-    name: ""
-  }
+    name: '',
+  };
 
   data: any;
   categoryForm = this.FormBuilder.group({
-    name: ['', [Validators.required]]
-  })
+    name: ['', [Validators.required]],
+  });
 
   ngOnInit() {
     this.getCategoryDetail();
@@ -36,13 +42,13 @@ export class UpdateCategoryComponent {
         this.categoryService.getOneCategory(_id).subscribe((data) => {
           this.data = data;
           console.log(data);
-          this.category = this.data.data
+          this.category = this.data.data;
           this.categoryForm.patchValue({
-            name: this.category?.name
-          })
-        })
+            name: this.category?.name,
+          });
+        });
       }
-    })
+    });
   }
 
   //HÀM SỬ LÝ SỰ KIỆN UPDATE
@@ -52,15 +58,17 @@ export class UpdateCategoryComponent {
     const product: ICategory = {
       _id: this.category._id,
       name: this.categoryForm.value.name || '',
-    }
-    this.categoryService.UpdateCategory(product).subscribe(data => {
-      if (data.success) {
-        this.ToastrService.success("Cập nhật danh mục thành công🤭😎");
-        this.router.navigateByUrl("/admin/category");
+    };
+    this.categoryService.UpdateCategory(product).subscribe(
+      (data) => {
+        if (data.success) {
+          this.ToastrService.success(data.message);
+          this.router.navigateByUrl('/admin/category');
+        }
+      },
+      (error) => {
+        this.ToastrService.error(error.error.message);
       }
-      else {
-        this.ToastrService.error(data.message);
-      }
-    })
+    );
   }
 }

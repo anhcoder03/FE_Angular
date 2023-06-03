@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+// regular style toast
+@import "ngx-toastr/toastr";
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
@@ -59,8 +61,6 @@ a {
 .form-layout {
   @apply grid grid-cols-1 lg:grid-cols-2 lg:gap-x-10 mb-5 lg:mb-10;
 }
-// regular style toast
-@import "ngx-toastr/toastr";
 
 .form-group {
   margin-bottom: 30px;
@@ -106,7 +106,6 @@ td {
   z-index: 1;
   cursor: pointer;
 }
-
 .owl-prev,
 .owl-next {
   position: absolute !important;
