@@ -1,1 +1,42 @@
-<p>list-category works!</p>
+<div class="mb-10">
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="text-3xl font-bold">List Category</h1>
+    </div>
+    <div>
+      <a routerLink="/admin/category/add"
+        class="block px-5 py-3 text-white bg-blue-500 rounded-lg hover:bg-blue-400">Thêm danh mục</a>
+    </div>
+  </div>
+</div>
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Slug</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="py-3" *ngFor="let category of categories; index as i">
+        <td>{{ i + 1 }}</td>
+        <!-- <td class="flex-1 min-w-[300px]">{{ category._id }}</td> -->
+        <td class="text-gray-400">
+          <em>{{ category.name }}</em>
+        </td>
+        <td class="text-gray-400">
+          <em>{{ category.slug }}</em>
+        </td>
+        <td class="flex items-center text-white gap-x-4" (click)="onHandleRemove(category._id)">
+          <button class="px-4 py-2 bg-red-500 rounded-lg hover:bg-red-400">
+            <i class="fa fa-trash"></i>
+          </button>
+          <a class="px-3 py-2 text-white bg-gray-500 rounded-md hover:bg-green-600 deley-100"
+            [routerLink]="['/admin/category', category._id, 'edit']"><i class="fa-solid fa-pen-to-square"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
