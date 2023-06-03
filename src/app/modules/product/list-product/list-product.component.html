@@ -1,1 +1,75 @@
-<p>list-product works!</p>
+<!-- <div class="mb-10">
+  <div class="flex items-center justify-between">
+    <div><h1 class="text-3xl font-bold">Danh sách sản phẩm</h1></div>
+    <div>
+      <a
+        routerLink="/admin/product/add"
+        class="block px-5 py-3 text-white bg-blue-500 rounded-lg hover:bg-blue-400"
+        >Thêm sản phẩm</a
+      >
+    </div>
+  </div>
+</div>
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Ảnh</th>
+        <th>Tên sản phẩm</th>
+        <th>Giá</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="products && products.length">
+      <tr
+        class="py-3"
+        *ngFor="
+          let product of products
+            | paginate
+              : {
+                  itemsPerPage: itemsPerPage,
+                  currentPage: currentPage,
+                  totalItems: totalItems
+                };
+          index as i
+        "
+      >
+        <td>{{ i + 1 }}</td>
+        <td>
+          <img
+            src="{{ product.image }}"
+            class="w-[60px] h-[80px] object-cover"
+          />
+        </td>
+        <td class="flex-1 min-w-[300px]">{{ product.productName }}</td>
+        <td class="text-gray-400">
+          <em class="text-red-500">{{ formatPrice(product.price) }}đ</em>
+        </td>
+        <td>
+          <div class="flex items-center text-white gap-x-4">
+            <button
+              class="px-4 py-2 bg-red-500 rounded-lg hover:bg-red-400"
+              (click)="onhandleremove(product._id)"
+            >
+              <i class="fa fa-trash"></i>
+            </button>
+            <a
+              class="px-3 py-2 text-white bg-gray-500 rounded-md hover:bg-green-600 deley-100"
+              [routerLink]="['/admin/product', product._id, 'edit']"
+              ><i class="fa-solid fa-pen-to-square"></i
+            ></a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    class="flex items-center justify-center w-full mt-5"
+    *ngIf="products && products.length"
+  >
+    <pagination-controls
+      (pageChange)="onPageChange($event)"
+    ></pagination-controls>
+  </div>
+</div> -->

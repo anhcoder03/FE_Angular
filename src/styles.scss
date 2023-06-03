@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+// regular style toast
+@import "ngx-toastr/toastr";
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
@@ -53,4 +55,52 @@ h6 {
 
 a {
   text-decoration: none;
+}
+.form-layout {
+  @apply grid grid-cols-1 lg:grid-cols-2 lg:gap-x-10 mb-5 lg:mb-10;
+}
+.form-group {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.table-wrapper {
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 10px;
+}
+table {
+  width: 100%;
+}
+thead {
+  background-color: #f7f7f8;
+}
+th,
+td {
+  vertical-align: middle;
+}
+th {
+  padding: 20px 30px;
+  font-weight: 600;
+  text-align: left;
+}
+td {
+  padding: 15px 30px;
+  border-width: 1px;
+}
+.hidden-input {
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  cursor: pointer;
 }
