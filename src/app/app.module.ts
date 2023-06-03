@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -75,6 +76,7 @@ import { SocialMediaComponent } from './components/social-media/social-media.com
     HttpClientModule,
     CarouselModule,
     ToastrModule.forRoot(),
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
