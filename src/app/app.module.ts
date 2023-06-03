@@ -21,6 +21,9 @@ import { ClientLayoutComponent } from './layouts/client-layout/client-layout.com
 import { HeaderComponent } from './components/common/header/header.component';
 import { SliderComponent } from './components/common/slider/slider.component';
 import { FooterComponent } from './components/common/footer/footer.component';
+import { DashboardHeaderComponent } from './components/dashboard/dashboard-header/dashboard-header.component';
+import { DashboardSidebarComponent } from './components/dashboard/dashboard-sidebar/dashboard-sidebar.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { FooterComponent } from './components/common/footer/footer.component';
     ClientLayoutComponent,
     HeaderComponent,
     SliderComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardHeaderComponent,
+    DashboardSidebarComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

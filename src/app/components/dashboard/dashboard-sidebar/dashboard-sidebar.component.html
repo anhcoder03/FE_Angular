@@ -1,0 +1,9 @@
+<div class="sidebar-wrapper">
+  <div class="" *ngFor="let sidebarItem of sidebarLinks">
+    <a routerLink="/admin/{{ sidebarItem.path }}" routerLinkActive="active" class="menu-item">
+      <span className="menu-icon">
+        <i class="{{ sidebarItem.classIcon }}"></i></span>
+      <span className="menu-text">{{ sidebarItem.title }}</span>
+    </a>
+  </div>
+</div>
