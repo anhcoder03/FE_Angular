@@ -56,7 +56,6 @@ export class UpdateProductComponent {
         this.image.url = this.product.image;
         this.imageRegex = /\/([^\/]+)\.png/.exec(this.image.url);
         this.publicId = this.imageRegex?.length > 0 ? this.imageRegex[1] : '';
-        console.log(this.publicId);
       });
     });
   }
@@ -74,7 +73,6 @@ export class UpdateProductComponent {
       this.listImage = data;
       this.image = this.listImage.urls[0];
       this.productForm.patchValue({ image: this.image.url });
-      console.log(this.image);
     });
   };
   handleDeteleImage() {
@@ -92,7 +90,6 @@ export class UpdateProductComponent {
   getcategories() {
     this.productService.getAllcategories().subscribe((data) => {
       this.categories = data.data as any[];
-      console.log(this.categories);
     });
   }
   handleUpdateProduct() {
@@ -108,14 +105,17 @@ export class UpdateProductComponent {
       categoryId: this.productForm.value.categoryId || '',
     };
     console.log(products);
-    this.productService.updateProduct(products).subscribe((data) => {
-      if (data.success) {
-        this.toastr.success(data.message);
-      } else {
-        this.toastr.error(data.message);
+    this.productService.updateProduct(products).subscribe(
+      (data) => {
+        if (data.success) {
+          this.toastr.success(data.message);
+          this.router.navigateByUrl('/admin/product');
+        }
+      },
+      (error) => {
+        this.toastr.error(error.error.message);
       }
-      this.router.navigateByUrl('/admin/product');
-    });
+    );
   }
 }
 

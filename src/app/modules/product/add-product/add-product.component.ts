@@ -80,14 +80,17 @@ export class AddProductComponent {
       categoryId: this.productForm.value.categoryId || '',
     };
 
-    this.productService.addProduct(products).subscribe((data) => {
-      if (data.success) {
-        this.toastr.success(data.message);
-      } else {
-        this.toastr.error(data.message);
+    this.productService.addProduct(products).subscribe(
+      (data) => {
+        if (data.success) {
+          this.toastr.success(data.message);
+          this.router.navigateByUrl('/admin/product');
+        }
+      },
+      (error) => {
+        this.toastr.error(error.error.message);
       }
-      this.router.navigateByUrl('/admin/product');
-    });
+    );
   }
 }
 type Data = {
