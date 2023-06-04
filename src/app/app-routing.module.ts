@@ -19,6 +19,8 @@ import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { AdminGuard } from './services/guard/admin.guard';
 import { AuthGuard } from './services/guard/authen.guard';
+import { ListUserComponent } from './modules/user/list-user/list-user.component';
+import { UpdateUserComponent } from './modules/user/update-user/update-user.component';
 
 const routes: Routes = [
   {
@@ -66,8 +68,8 @@ const routes: Routes = [
       {
         path: 'account',
         children: [
-          // { path: '', component: AccountListComponent },
-          // { path: ':id/edit', component: AccountUpdateComponent },
+          { path: '', component: ListUserComponent },
+          { path: ':id/edit', component: UpdateUserComponent },
         ],
       },
     ],

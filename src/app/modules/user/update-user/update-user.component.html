@@ -1,1 +1,112 @@
-<p>update-user works!</p>
+<div class="mb-10">
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="text-3xl font-bold">Cập nhật tài khoản</h1>
+    </div>
+    <div>
+      <a
+        routerLink="/admin/account"
+        class="block px-5 py-3 text-white bg-blue-500 rounded-lg hover:bg-blue-400"
+        >Danh sách tài khoản</a
+      >
+    </div>
+  </div>
+</div>
+<div>
+  <div class="">
+    <form [formGroup]="userForm" (ngSubmit)="onHandleSubmit()">
+      <div class="form-layout">
+        <div class="form-group">
+          <label for="productName">fullname</label>
+          <input
+            type="text"
+            formControlName="fullname"
+            placeholder="fullname"
+            class="w-full px-3 py-4 border rounded-lg outline-none bg-slate-200 focus:bg-white focus:border-red-400"
+          />
+        </div>
+        <div class="form-group">
+          <label for="">Ảnh sản phẩm</label>
+
+          <label
+            for=""
+            class="cursor-pointer flex items-center justify-center border border-dashed w-full h-[300px] max-h-[300px] rounded-lg relative overflow-hidden group"
+          >
+            <input
+              type="file"
+              name="image"
+              class="opacity-0 hidden-input"
+              (change)="handleSelectImage($event)"
+              multiple
+            />
+            <div
+              class="flex flex-col items-center text-center pointer-events-none"
+              *ngIf="!image.url"
+            >
+              <img
+                src="https://book-wine.vercel.app/img-upload.png"
+                alt="upload-img"
+                class="max-w-[80px] mb-5"
+              />
+              <p class="font-semibold">Choose photo</p>
+            </div>
+
+            <img
+              *ngIf="image.url"
+              [src]="image.url"
+              class="object-cover w-full h-full"
+              alt=""
+            />
+            <button
+              type="button"
+              *ngIf="image.url"
+              class="absolute z-10 flex items-center justify-center invisible w-16 h-16 text-red-500 transition-all bg-white rounded-full opacity-0 cursor-pointer group-hover:opacity-100 group-hover:visible"
+              (click)="handleDeteleImage()"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                />
+              </svg>
+            </button>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="productName">email</label>
+          <input
+            type="text"
+            formControlName="email"
+            placeholder="email"
+            class="w-full px-3 py-4 border rounded-lg outline-none bg-slate-200 focus:bg-white focus:border-red-400"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="productName">status</label>
+          <input
+            type="status"
+            formControlName="status"
+            placeholder="status"
+            class="w-full px-3 py-4 border rounded-lg outline-none bg-slate-200 focus:bg-white focus:border-red-400"
+          />
+        </div>
+      </div>
+      <button
+        type="submit"
+        [disabled]="!userForm.valid"
+        class="w-[250px] bg-green-500 font-medium text-xl text-white mt-5 rounded-lg py-5 h-[60px] flex items-center justify-center mx-auto"
+      >
+        Cập nhật user
+      </button>
+    </form>
+  </div>
+</div>
