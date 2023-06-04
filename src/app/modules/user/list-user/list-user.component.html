@@ -1,1 +1,93 @@
-<p>list-user works!</p>
+<div class="mb-10">
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="text-3xl font-bold">Quản lý tài khoản</h1>
+    </div>
+  </div>
+</div>
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Ảnh</th>
+        <th>Tên tài khoản</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="users && users.length">
+      <tr
+        class="py-3"
+        *ngFor="
+          let user of users
+            | paginate
+              : {
+                  itemsPerPage: itemsPerPage,
+                  currentPage: currentPage,
+                  totalItems: totalItems
+                };
+          index as i
+        "
+      >
+        <td>{{ i + 1 }}</td>
+        <td>
+          <img src="{{ user.avatar }}" class="w-[60px] h-[80px] object-cover" />
+        </td>
+        <td>{{ user.fullname }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <span
+            *ngIf="user.admin === true"
+            class="px-3 py-2 text-blue-500 bg-blue-100 rounded-lg"
+            >Admin</span
+          >
+          <span
+            *ngIf="user.admin === false"
+            class="px-3 py-2 text-pink-500 bg-pink-100 rounded-lg"
+            >User</span
+          >
+        </td>
+        <td>
+          <span
+            *ngIf="user.status === 'Active'"
+            class="px-3 py-2 text-green-500 bg-green-100 rounded-lg"
+            >Active</span
+          >
+          <span
+            *ngIf="user.status !== 'Active'"
+            class="px-3 py-2 text-red-500 bg-red-100 rounded-lg"
+            >Ban</span
+          >
+          <span></span>
+        </td>
+        <td>
+          <div class="flex items-center text-white gap-x-4">
+            <button
+              class="px-4 py-2 bg-red-500 rounded-lg hover:bg-red-400"
+              (click)="onHandleRemove(user._id)"
+            >
+              <i class="fa fa-trash"></i>
+            </button>
+            <a
+              class="px-3 py-2 text-white bg-gray-500 rounded-md hover:bg-green-600 deley-100"
+              [routerLink]="['/admin/account', user._id, 'edit']"
+              ><i class="fa-solid fa-pen-to-square"></i
+            ></a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    class="flex items-center justify-center w-full mt-5"
+    *ngIf="users && users.length"
+  >
+    <pagination-controls
+      (pageChange)="onPageChange($event)"
+    ></pagination-controls>
+  </div>
+</div>
+

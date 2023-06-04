@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ISignin, ISignup } from 'src/app/interface/auth';
+import { ISignin, ISignup, IUser } from 'src/app/interface/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -52,5 +52,18 @@ export class AuthService {
       }
     }
     return false;
+  }
+  // Amdin
+  getAllAccount():Observable<IUser[]>{
+   return this.http.get<IUser[]>(`${this.API_URL}/get-all-user`)
+  }
+  getOneAccount(_id:string):Observable<IUser>{
+    return this.http.get<IUser>(`${this.API_URL}/getUser/${_id}`)
+  }
+  DeleteAccount(_id:String):Observable<any>{
+    return this.http.delete(`${this.API_URL}/remove-user/${_id}`)
+  }
+  UpdateAccount(user:IUser):Observable<IUser>{
+    return this.http.put<IUser>(`${this.API_URL}/update-user/${user._id}`,user)
   }
 }
