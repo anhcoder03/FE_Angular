@@ -39,6 +39,7 @@ import { SocialMediaComponent } from './components/social-media/social-media.com
 import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
 import { AuthenticationLayoutComponent } from './layouts/authentication-layout/authentication-layout.component';
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
+import { ProductMacbookComponent } from './components/product-macbook/product-macbook.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component
     SignUpPageComponent,
     AuthenticationLayoutComponent,
     SignInPageComponent,
+    ProductMacbookComponent,
   ],
   imports: [
     BrowserModule,
