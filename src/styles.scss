@@ -136,3 +136,10 @@ td {
   display: none;
   font-size: 14px;
 }
+.mat-mdc-tab-labels {
+  max-width: 350px !important;
+}
+.mdc-tab-indicator--active {
+  color: #be1e2d !important;
+  background-color: #be1e2e25 !important;
+}

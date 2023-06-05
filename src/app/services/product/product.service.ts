@@ -14,6 +14,9 @@ export class ProductService {
   getOneproduct(_id: string): Observable<any> {
     return this.http.get(`${this.Api_Url}/getProduct/${_id}`);
   }
+  getProductDetail(slug: any): Observable<any> {
+    return this.http.get(`${this.Api_Url}/getProductDetail/${slug}`);
+  }
   deleteProduct(_id: string): Observable<IData> {
     return this.http.delete(`${this.Api_Url}/remove-product/${_id}`);
   }

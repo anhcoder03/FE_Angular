@@ -1,1 +1,149 @@
-<p>product-detail-page works!</p>
+<div class="bg-secondary py-10">
+  <div class="container">
+    <div class="p-10 bg-white rounded-xl">
+      <div class="flex justify-between">
+        <div class="flex items-center justify-center w-1/2">
+          <img src="{{ product.image }}" alt="" />
+        </div>
+        <div class="flex-1 w-1/2">
+          <h1 class="text-2xl font-bold mb-5">
+            {{ product.productName }}
+          </h1>
+          <div class="rating flex items-center">
+            <span
+              class="star text-2xl pointer-events-none"
+              [class.filled]="true"
+              >&#9733;</span
+            >
+            <span class="text-black"
+              >( {{ product.review_count }} lượt đánh giá )</span
+            >
+          </div>
+          <div class="flex items-center gap-x-10 mb-5">
+            <span> Giá: </span>
+            <span class="text-xl font-bold text-red-500"
+              >{{ formatPrice(product.price) }} đ</span
+            >
+          </div>
+          <div class="flex items-center gap-x-10 mb-10">
+            <span>Số lượng:</span>
+            <div
+              class="max-w-[150px] w-full flex items-center justify-between px-4 py-3 border border-slate-200 rounded-md"
+            >
+              <button (click)="decrementQuantity()">
+                <i class="fa fa-minus"></i>
+              </button>
+              <span>{{ quantity }}</span>
+              <button (click)="incrementQuantity()">
+                <i class="fa fa-plus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="flex items-center gap-x-5">
+            <button
+              class="bg-primary w-[250px] h-[60px] text-white rounded-lg mb-10 hover:bg-opacity-80"
+            >
+              Thêm vào giỏ hàng
+            </button>
+            <button
+              class="bg-primary w-[250px] h-[60px] text-white rounded-lg mb-10 hover:bg-opacity-80"
+            >
+              Mua ngay
+            </button>
+          </div>
+          <div class="bg-[#ffe7e9] p-3 rounded-lg">
+            <!-- <star-rating-comp [starType]="'icon'" [rating]="3"></star-rating-comp> -->
+            <div class="box-cmt-info w-full rounded bg-pink p-2">
+              <div>
+                <div class="flex items-center">
+                  <svg
+                    class="w-auto"
+                    width="17"
+                    height="15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.964 5.563v-.036c-.036-.035-.036-.071-.072-.071L8.787.542C8.75.506 8.715.506 8.679.506L.287.076C.143.076.072.148 0 .256V2.73c0 .108.036.18.143.215l2.08 1.291L.396 5.42a.326.326 0 0 0-.108.25l.108 3.695c0 .072.035.18.107.215l8.034 5.308c.036 0 .072.036.107.036.036 0 .072 0 .108-.036l8.034-5.308c.072-.036.107-.143.107-.215L17 5.671c0-.036 0-.072-.036-.108ZM8.572 1.044l7.209 4.304-7.424-.18L1.29.65l7.28.394Zm7.316 4.842-1.937 1.22H9.432l-.717-1.4 7.173.18Zm-15.35-3.3V.83l7.28 4.663-.968.932L.538 2.586Zm2.224 1.937 1.614 1.04-1.65 1.112-1.65-1.04 1.686-1.112Zm5.63 9.648L.897 9.186.825 6.137l7.567 4.698v3.336Zm.287-3.802L3.228 6.998l1.685-1.112 1.865 1.148c.108.071.252.036.323-.036l1.112-1.076.825 1.614c.036.107.143.143.251.143h3.802l-4.412 2.69Zm7.747-1.183L8.93 14.17v-3.336l7.568-4.698-.072 3.049Z"
+                      fill="#BE1E2D"
+                    ></path>
+                  </svg>
+                  <p class="px-2 text-14 font-bold">Bộ sản phẩm bao gồm</p>
+                </div>
+                <div class="relative my-2 text-justify text-14 antialiased">
+                  <div class="info-content flex flex-middle">
+                    <div class="info-desc">
+                      <p>Máy mới nguyên seal 100%, chính hãng Apple Việt Nam</p>
+                      <p>
+                        Di Động Việt là đại lý uỷ quyền chính thức của Apple
+                        Việt Nam
+                      </p>
+                      <p>&nbsp;</p>
+                    </div>
+                  </div>
+                  <div class="info-content flex flex-middle">
+                    <div class="info-desc">
+                      <p>
+                        <strong>Bộ sản phẩm:</strong>&nbsp;Thân máy, Hộp, Cáp,
+                        Cây lấy sim, Sách hướng dẫn, Túi giấy cao cấp Di Động
+                        Việt
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- content2  -->
+    <div class="p-10 bg-white rounded-xl mt-10">
+      <mat-tab-group>
+        <mat-tab label="Mô tả">
+          <ng-template matTabContent>
+            <div class="mt-5">
+              <p>{{ product.description }}</p>
+            </div>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="Đánh giá">
+          <ng-template matTabContent>
+            <div class="mt-10">
+              <h2 class="text-xl font-semibold">
+                Để lại đánh giá cho sản phẩm này
+              </h2>
+              <div class="rating">
+                <h4 class="font-semibold pt-5 text-gray-600">Đánh giá sao *</h4>
+                <span
+                  class="star text-2xl"
+                  *ngFor="let star of stars"
+                  [class.filled]="star.filled"
+                  (click)="rate(star.value)"
+                  >&#9733;</span
+                >
+              </div>
+            </div>
+            <div>
+              <h4 class="font-semibold pt-5 text-gray-600">
+                Viết đánh giá cho sản phẩm *
+              </h4>
+              <textarea
+                name=""
+                id=""
+                placeholder="Đánh giá sản phẩm"
+                class="min-h-[200px] w-full p-4 border border-slate-200"
+              ></textarea>
+              <button
+                class="block mt-5 max-w-[250px] w-full mx-auto py-3 space-x-2 font-medium text-white border-indigo-500 rounded-lg bg-primary hover:bg-opacity-80 hover:shadow"
+              >
+                <span>Đánh giá</span>
+              </button>
+            </div>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
