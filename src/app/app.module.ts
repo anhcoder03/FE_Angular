@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -85,6 +86,7 @@ import { ProductMacbookComponent } from './components/product-macbook/product-ma
     CarouselModule,
     ToastrModule.forRoot(),
     NgxPaginationModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
