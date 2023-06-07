@@ -19,7 +19,7 @@ export class SignInPageComponent {
   ) {}
 
   userForm = this.FormBuilder.group({
-    email: ['', [Validators.required]],
+    email: ['', [Validators.required,Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
 

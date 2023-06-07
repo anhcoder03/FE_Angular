@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ISignup } from 'src/app/interface/auth';
@@ -17,12 +17,22 @@ export class SignUpPageComponent {
     private router: Router,
     private toastr: ToastrService
   ) {}
+
+  //  validate
   userForm = this.FormBuilder.group({
-    fullname: [''],
-    email: [''],
-    password: [''],
-    confirmPassword: [''],
-  });
+    fullname: ['',[Validators.required,Validators.minLength(6),Validators.maxLength(255)]],
+    email: ['',[Validators.required,Validators.email]],
+    password: ['',[Validators.required,Validators.minLength(6)]],
+    confirmPassword: ['',[Validators.required]],
+  },{validator:this.checkPassword});
+
+  checkPassword(from:FormGroup ){
+    const password = from.get('password')?.value;
+    const confirmPassword = from.get('confirmPassword')?.value
+    if (password == confirmPassword) return null
+    return {notMatch :true}
+  }
+
 
   ngOnInit() {
     console.log(this.userForm);
