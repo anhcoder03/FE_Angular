@@ -19,10 +19,10 @@ export class AddProductComponent {
 
   productForm = this.formBuilder.group({
     productName: ['', [Validators.required]],
-    price: [0],
+    price: [0, [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
     image: [''],
-    description: ['', Validators.required],
-    categoryId: [''],
+    description: [''],
+    categoryId: ['',[Validators.required]],
   });
   constructor(
     private formBuilder: FormBuilder,
