@@ -16,6 +16,21 @@
             class="w-full px-3 py-3 border rounded-lg border-slate-200 focus:outline-none focus:border-slate-500 hover:shadow"
             placeholder="Họ Và Tên"
           />
+
+          <div class="text-red-600" *ngIf="userForm.get('fullname')?.hasError('required')&&
+          (userForm.get('fullname')?.touched ||
+          userForm.get('fullname')?.dirty)
+          "
+          >Họ Và Tên không được bỏ trống</div>
+
+          <div class="text-red-600" *ngIf="userForm.get('fullname')?.hasError('minlength')&&
+          (userForm.get('fullname')?.touched ||
+          userForm.get('fullname')?.dirty)
+          "
+          >độ dài tối thiểu 6 ký tự</div>
+
+
+
         </label>
         <label for="email">
           <p class="pb-2 font-medium text-slate-700">Email</p>
@@ -27,6 +42,18 @@
             class="w-full px-3 py-3 border rounded-lg border-slate-200 focus:outline-none focus:border-slate-500 hover:shadow"
             placeholder="Địa chỉ email"
           />
+          <div class="text-red-600" *ngIf="userForm.get('email')?.hasError('required')&&
+          (userForm.get('email')?.touched ||
+          userForm.get('email')?.dirty)
+          "
+          >email không được bỏ trống </div>
+
+          <div class="text-red-600" *ngIf="userForm.get('email')?.hasError('email')&&
+          (userForm.get('email')?.touched ||
+          userForm.get('email')?.dirty)
+          "
+          >email không đúng định dạng</div>
+
         </label>
         <label for="password">
           <p class="pb-2 font-medium text-slate-700">Mật khẩu</p>
@@ -38,6 +65,20 @@
             class="w-full px-3 py-3 border rounded-lg border-slate-200 focus:outline-none focus:border-slate-500 hover:shadow"
             placeholder="Mật khẩu"
           />
+
+          <div class="text-red-600" *ngIf="userForm.get('password')?.hasError('required')&&
+          (userForm.get('password')?.touched ||
+          userForm.get('password')?.dirty)
+          "
+          >Mật khẩu không được bỏ trống</div>
+
+          <div class="text-red-600" *ngIf="userForm.get('password')?.hasError('minlength')&&
+          (userForm.get('password')?.touched ||
+          userForm.get('password')?.dirty)
+          "
+          >độ dài tối thiểu 6 ký tự</div>
+
+
         </label>
         <label for="confirmPassword">
           <p class="pb-2 font-medium text-slate-700">Nhập lại mật khẩu</p>
@@ -49,6 +90,14 @@
             class="w-full px-3 py-3 border rounded-lg border-slate-200 focus:outline-none focus:border-slate-500 hover:shadow"
             placeholder="Nhập lại mật khẩu"
           />
+          <div class="text-red-600" *ngIf="userForm.hasError('notMatch')&&
+          (userForm.get('confirmPassword')?.touched ||
+          userForm.get('confirmPassword')?.dirty)
+          "
+          >
+          mật khẩu không giống nhau
+        </div>
+
         </label>
         <div class="flex flex-row justify-between">
           <div>
