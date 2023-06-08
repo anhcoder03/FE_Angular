@@ -41,6 +41,7 @@ import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component
 import { AuthenticationLayoutComponent } from './layouts/authentication-layout/authentication-layout.component';
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { ProductMacbookComponent } from './components/product-macbook/product-macbook.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { ProductMacbookComponent } from './components/product-macbook/product-ma
     AuthenticationLayoutComponent,
     SignInPageComponent,
     ProductMacbookComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,4 +93,4 @@ import { ProductMacbookComponent } from './components/product-macbook/product-ma
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

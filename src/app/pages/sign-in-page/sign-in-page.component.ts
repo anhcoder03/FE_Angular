@@ -16,14 +16,14 @@ export class SignInPageComponent {
     private AuthService: AuthService,
     private toastr: ToastrService,
     private router: Router
-  ) {}
+  ) { }
 
   userForm = this.FormBuilder.group({
-    email: ['', [Validators.required,Validators.email]],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onHandleSignin() {
     if (this.userForm.invalid) {
