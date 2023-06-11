@@ -24,11 +24,17 @@ export class ProductDetailPageComponent {
     private route: ActivatedRoute,
     private productService: ProductService
   ) {
-    this.productSlug = this.route.snapshot.paramMap.get('slug');
-    console.log(this.productSlug);
-    this.productService.getProductDetail(this.productSlug).subscribe((data) => {
-      console.log(data);
-      this.product = data;
+    window.scrollTo(0, 0);
+  }
+  ngOnInit() {
+    this.route.params.subscribe((params) => {
+      this.productSlug = params['slug'];
+      this.productService
+        .getProductDetail(this.productSlug)
+        .subscribe((data) => {
+          console.log(data);
+          this.product = data;
+        });
     });
   }
   quantity: number = 1;

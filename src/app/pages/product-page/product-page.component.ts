@@ -7,12 +7,14 @@ import { ICategory } from 'src/app/interface/Category';
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
-  styleUrls: ['./product-page.component.scss']
+  styleUrls: ['./product-page.component.scss'],
 })
 export class ProductPageComponent {
-
-  constructor(private ProductService: ProductService, private CategoryService: CategoryService) {
-  }
+  title: string = 'Tất Cả Sản Phẩm';
+  constructor(
+    private ProductService: ProductService,
+    private CategoryService: CategoryService
+  ) {}
 
   products: IProduct[] = [];
   categories: ICategory[] = [];
@@ -32,7 +34,8 @@ export class ProductPageComponent {
       this.data = data;
       this.products = this.data.data;
       this.totalItems = data.totalProduct;
-    })
+      this.title = 'Tất Cả Sản Phẩm';
+    });
   }
 
   // Hàm xử lí lấy tất cả dữ liệu danh mục
@@ -41,16 +44,17 @@ export class ProductPageComponent {
       this.data = data;
       this.categories = this.data.data;
       console.log(this.categories);
-    }
-    )
+    });
   }
 
   // Hàm xử lí lấy những sản phẩm thuộc danh mục thông qua thuộc tính id
-  getProductByCate(_id: any) {
+  getProductByCate(_id: any, catename: string) {
     this.ProductService.getProductByCategory(_id).subscribe((data) => {
       this.data = data;
       this.products = this.data.data;
-    })
+      this.totalItems = this.data.totalProduct;
+      this.title = catename;
+    });
   }
 
   // Format price

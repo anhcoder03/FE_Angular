@@ -47,5 +47,5 @@ interface IData {
   message?: string;
   data?: IProduct | IProduct[];
   totalPage?: number;
-  totalProduct?: number;
+  totalProduct?: any;
 }
