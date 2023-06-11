@@ -1,0 +1,37 @@
+<p>search works!</p>
+<form [formGroup]="searchForm" (ngSubmit)="onHandleSearch()"
+  class="flex items-center w-[500px] border border-slate-300 rounded-xl">
+  <input formControlName="keyWords" type="text" (input)="onHandleChange()" placeholder="Tìm kiếm sản phẩm..."
+    class="flex-1 w-full px-5 py-2 rounded-tl-xl rounded-bl-xl" />
+  <button type="submit" class="w-[80px] flex items-center justify-center text-white cursor-pointer">
+    <i class="fa fa-search"></i>
+  </button>
+</form>
+
+<div class="bg-secondary rounded-md z-50 absolute w-[500px]">
+  <div class="container pt-5 ">
+    <div class="p-2 bg-white rounded-md">
+      <div *ngIf="noResultsFound">
+        <p class="text-center">Không tìm thấy sản phẩm nào</p>
+      </div>
+      <div *ngIf="showSearchResults ">
+        <div *ngFor="let product of products"
+          class="grid grid-cols-[80px,auto] h-full p-2 border rounded-md border-slate-200 gap-y-5">
+          <div class="">
+            <a [routerLink]="['/product', product.slug]">
+              <img src="{{ product.image }}" alt="{{ product.productName }}"
+                class="transition duration-200 ease-in-out hover:scale-105 md:h-[30px] md:w-[30px]" />
+            </a>
+          </div>
+          <div class=" gap-y-3">
+            <h3>
+              <a class="hover:text-red-400" [routerLink]="['/product', product.slug]">{{
+                product.productName
+                }}</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
