@@ -2,64 +2,28 @@
   <div class="container">
     <div class="flex items-center justify-between py-2">
       <div class="w-1/5">
-        <a routerLink=""
-          ><img
-            src="https://didongviet.vn/svg/Header/logowhite.svg"
-            class=""
-            alt=""
-        /></a>
+        <a routerLink=""><img src="https://didongviet.vn/svg/Header/logowhite.svg" class="" alt="" /></a>
       </div>
       <div class="w-full max-w-[500px]">
-        <div
-          class="flex items-center w-full border border-slate-300 rounded-xl"
-        >
-          <input
-            type="text"
-            placeholder="Tìm kiếm sản phẩm..."
-            class="flex-1 w-full px-5 py-2 rounded-tl-xl rounded-bl-xl"
-          />
-          <span class="w-[80px] flex items-center justify-center cursor-pointer"
-            ><i class="fa fa-search"></i
-          ></span>
+        <div class="flex items-center w-full border border-slate-300 rounded-xl">
+          <app-search></app-search>
         </div>
       </div>
       <div class="flex items-center text-white gap-x-5">
         <div class="pr-5 border-r border-white">
-          <a
-            *ngIf="!dataUser"
-            routerLink="/sign-in"
-            class="flex items-center gap-x-2"
-            ><span>Đăng nhập</span> <span><i class="fa fa-user"></i></span
-          ></a>
-          <div
-            *ngIf="dataUser"
-            class="relative flex items-center cursor-pointer dropdown"
-          >
+          <a *ngIf="!dataUser" routerLink="/sign-in" class="flex items-center gap-x-2"><span>Đăng nhập</span> <span><i
+                class="fa fa-user"></i></span></a>
+          <div *ngIf="dataUser" class="relative flex items-center cursor-pointer dropdown">
             <div class="flex items-center gap-x-2">
-              <img
-                src="{{ dataUser?.avatar }}"
-                class="w-[40px] h-[40px] object-cover rounded-full"
-                alt=""
-              />
+              <img src="{{ dataUser?.avatar }}" class="w-[40px] h-[40px] object-cover rounded-full" alt="" />
               <span class="text-sm">{{ dataUser?.fullname }}</span>
             </div>
-            <div
-              class="absolute z-50 flex flex-col min-w-[200px] bg-white top-full text-primary"
-            >
-              <a
-                *ngIf="dataUser.admin === true"
-                routerLink="/admin"
-                class="menu-dropdown"
-                >Trang quản trị</a
-              >
+            <div class="absolute z-50 flex flex-col min-w-[200px] bg-white top-full text-primary">
+              <a *ngIf="dataUser.admin === true" routerLink="/admin" class="menu-dropdown">Trang quản trị</a>
               <a routerLink="/me" class="menu-dropdown">Tài khoản của tôi</a>
 
-              <a routerLink="/change-password" class="menu-dropdown"
-                >Thay đổi mật khẩu</a
-              >
-              <a routerLink="/sign-in" (click)="logOut()" class="menu-dropdown"
-                >Đăng xuât</a
-              >
+              <a routerLink="/change-password" class="menu-dropdown">Thay đổi mật khẩu</a>
+              <a routerLink="/sign-in" (click)="logOut()" class="menu-dropdown">Đăng xuât</a>
             </div>
           </div>
         </div>
@@ -67,8 +31,7 @@
         <div>
           <a routerLink="/cart" class="flex items-center gap-x-2">
             <span>Giỏ hàng</span>
-            <span class="flex items-center gap-x-1"
-              ><i class="fa-solid fa-cart-shopping"></i>
+            <span class="flex items-center gap-x-1"><i class="fa-solid fa-cart-shopping"></i>
               <span>(0)</span>
             </span>
           </a>
