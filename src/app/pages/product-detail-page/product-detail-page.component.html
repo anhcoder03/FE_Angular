@@ -125,22 +125,25 @@
                 >
               </div>
             </div>
-            <div>
+            <form [formGroup]="commentForm" (ngSubmit)="handleComment()">
               <h4 class="font-semibold pt-5 text-gray-600">
                 Viết đánh giá cho sản phẩm *
               </h4>
               <textarea
-                name=""
+                name="content"
                 id=""
                 placeholder="Đánh giá sản phẩm"
+                formControlName="content"
                 class="min-h-[200px] w-full p-4 border border-slate-200"
               ></textarea>
               <button
                 class="block mt-5 max-w-[250px] w-full mx-auto py-3 space-x-2 font-medium text-white border-indigo-500 rounded-lg bg-primary hover:bg-opacity-80 hover:shadow"
+                type="submit"
+                [disabled]="!commentForm.valid"
               >
                 <span>Đánh giá</span>
               </button>
-            </div>
+            </form>
           </ng-template>
         </mat-tab>
       </mat-tab-group>
