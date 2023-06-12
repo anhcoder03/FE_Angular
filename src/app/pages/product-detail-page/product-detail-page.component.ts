@@ -16,6 +16,8 @@ export class ProductDetailPageComponent {
   productSlug: string | null = '';
   user: any;
   initStar: number = 5;
+  data: any;
+  error: any;
   product: IProduct = {
     image: '',
     price: 0,
@@ -48,13 +50,21 @@ export class ProductDetailPageComponent {
       this.productService
         .getProductDetail(this.productSlug)
         .subscribe((data) => {
-          console.log(data);
+          // console.log(data);
           this.product = data;
           this.commentService
             .getCommentByProductId(this.product._id)
             .subscribe((data) => {
               console.log(data);
-            });
+              this.data = data;
+              this.user = this.data.data;
+              console.log(this.user);
+            }, (error) => {
+              this.error = error;
+              this.user = this.error.error.message;
+              console.log(this.user);
+
+            })
         });
     });
   }
