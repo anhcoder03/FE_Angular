@@ -21,6 +21,8 @@ import { AdminGuard } from './services/guard/admin.guard';
 import { AuthGuard } from './services/guard/authen.guard';
 import { ListUserComponent } from './modules/user/list-user/list-user.component';
 import { UpdateUserComponent } from './modules/user/update-user/update-user.component';
+import { ChangePasswordPageComponent } from './pages/change-password-page/change-password-page.component';
+import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
 
 const routes: Routes = [
   {
@@ -41,6 +43,16 @@ const routes: Routes = [
     path: 'sign-in',
     component: AuthenticationLayoutComponent,
     children: [{ path: '', component: SignInPageComponent }],
+  },
+  {
+    path: 'forgot-password',
+    component: AuthenticationLayoutComponent,
+    children: [{ path: '', component: ForgotPasswordPageComponent }],
+  },
+  {
+    path: 'change-password',
+    component: AuthenticationLayoutComponent,
+    children: [{ path: '', component: ChangePasswordPageComponent }],
   },
   {
     path: 'admin',

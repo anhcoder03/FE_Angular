@@ -42,6 +42,8 @@ import { AuthenticationLayoutComponent } from './layouts/authentication-layout/a
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { ProductMacbookComponent } from './components/product-macbook/product-macbook.component';
 import { SearchComponent } from './components/search/search.component';
+import { ChangePasswordPageComponent } from './pages/change-password-page/change-password-page.component';
+import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,8 @@ import { SearchComponent } from './components/search/search.component';
     SignInPageComponent,
     ProductMacbookComponent,
     SearchComponent,
+    ChangePasswordPageComponent,
+    ForgotPasswordPageComponent,
   ],
   imports: [
     BrowserModule,
