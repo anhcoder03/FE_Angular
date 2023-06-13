@@ -45,6 +45,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ChangePasswordPageComponent } from './pages/change-password-page/change-password-page.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
     ChangePasswordPageComponent,
     ForgotPasswordPageComponent,
     ContactPageComponent,
+    CartPageComponent,
   ],
   imports: [
     BrowserModule,
