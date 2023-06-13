@@ -24,6 +24,7 @@ import { UpdateUserComponent } from './modules/user/update-user/update-user.comp
 import { ChangePasswordPageComponent } from './pages/change-password-page/change-password-page.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { NewsPageComponent } from './pages/news-page/news-page.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,8 @@ const routes: Routes = [
       { path: 'product', component: ProductPageComponent },
       { path: 'product/:slug', component: ProductDetailPageComponent },
       { path: 'contact', component: ContactPageComponent },
+      { path: 'news', component: NewsPageComponent },
+
 
     ],
   },
