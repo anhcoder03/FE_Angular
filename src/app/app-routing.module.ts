@@ -23,6 +23,7 @@ import { ListUserComponent } from './modules/user/list-user/list-user.component'
 import { UpdateUserComponent } from './modules/user/update-user/update-user.component';
 import { ChangePasswordPageComponent } from './pages/change-password-page/change-password-page.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,8 @@ const routes: Routes = [
       { path: '', component: HomePageComponent },
       { path: 'product', component: ProductPageComponent },
       { path: 'product/:slug', component: ProductDetailPageComponent },
+      { path: 'contact', component: ContactPageComponent },
+
     ],
   },
   {
