@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IComment } from 'src/app/interface/Comment';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +15,11 @@ export class CommentService {
   }
   getCommentByProductId(productId: any) {
     return this.http.get(`${this.Api_Url}/getComment/${productId}`);
+  }
+  getAllComment():Observable<IComment[]>{
+    return this.http.get<IComment[]>(`${this.Api_Url}/get-all-comment`)
+   }
+   DeleteComment(_id:String):Observable<any>{
+    return this.http.delete(`${this.Api_Url}/remove-comment/${_id}`)
   }
 }

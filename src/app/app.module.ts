@@ -50,6 +50,7 @@ import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.compo
 import { AddNewsComponent } from './modules/news/add-news/add-news.component';
 import { ListNewsComponent } from './modules/news/list-news/list-news.component';
 import { UpdateNewsComponent } from './modules/news/update-news/update-news.component';
+import { ListCommentComponent } from './modules/comment/list-comment/list-comment.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { UpdateNewsComponent } from './modules/news/update-news/update-news.comp
     AddNewsComponent,
     ListNewsComponent,
     UpdateNewsComponent,
+    ListCommentComponent,
   ],
   imports: [
     BrowserModule,
