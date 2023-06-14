@@ -27,6 +27,9 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
 import { NewsPageComponent } from './pages/news-page/news-page.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
+import { ListNewsComponent } from './modules/news/list-news/list-news.component';
+import { AddNewsComponent } from './modules/news/add-news/add-news.component';
+import { UpdateNewsComponent } from './modules/news/update-news/update-news.component';
 
 const routes: Routes = [
   {
@@ -87,6 +90,14 @@ const routes: Routes = [
           { path: '', component: ListProductComponent },
           { path: 'add', component: AddProductComponent },
           { path: ':id/edit', component: UpdateProductComponent },
+        ],
+      },
+      {
+        path: 'news',
+        children: [
+          { path: '', component: ListNewsComponent },
+          { path: 'add', component: AddNewsComponent },
+          { path: ':id/edit', component: UpdateNewsComponent },
         ],
       },
       {
