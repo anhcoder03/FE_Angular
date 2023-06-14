@@ -26,6 +26,7 @@ import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,8 @@ const routes: Routes = [
       { path: 'contact', component: ContactPageComponent },
       { path: 'news', component: NewsPageComponent },
       { path: 'cart', component: CartPageComponent },
+      { path: 'checkout', component: CheckoutPageComponent },
+
 
 
 
