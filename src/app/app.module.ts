@@ -47,6 +47,9 @@ import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
+import { AddNewsComponent } from './modules/news/add-news/add-news.component';
+import { ListNewsComponent } from './modules/news/list-news/list-news.component';
+import { UpdateNewsComponent } from './modules/news/update-news/update-news.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +90,9 @@ import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.compo
     ContactPageComponent,
     CartPageComponent,
     CheckoutPageComponent,
+    AddNewsComponent,
+    ListNewsComponent,
+    UpdateNewsComponent,
   ],
   imports: [
     BrowserModule,

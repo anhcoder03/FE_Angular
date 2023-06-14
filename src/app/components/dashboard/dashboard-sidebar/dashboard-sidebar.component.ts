@@ -34,6 +34,11 @@ export class DashboardSidebarComponent {
       classIcon: 'fa-regular fa-user',
     },
     {
+      title: 'News',
+      path: 'news',
+      classIcon: 'fas fa-newspaper',
+    },
+    {
       title: 'Order',
       path: 'order',
       classIcon: 'fa-solid fa-cart-shopping',
