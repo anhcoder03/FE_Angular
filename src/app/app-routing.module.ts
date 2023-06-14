@@ -30,6 +30,7 @@ import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.compo
 import { ListNewsComponent } from './modules/news/list-news/list-news.component';
 import { AddNewsComponent } from './modules/news/add-news/add-news.component';
 import { UpdateNewsComponent } from './modules/news/update-news/update-news.component';
+import { ListCommentComponent } from './modules/comment/list-comment/list-comment.component';
 
 const routes: Routes = [
   {
@@ -98,6 +99,12 @@ const routes: Routes = [
           { path: '', component: ListNewsComponent },
           { path: 'add', component: AddNewsComponent },
           { path: ':id/edit', component: UpdateNewsComponent },
+        ],
+      },
+      {
+        path: 'comment',
+        children: [
+          { path: '', component: ListCommentComponent },
         ],
       },
       {
